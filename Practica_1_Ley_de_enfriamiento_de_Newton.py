@@ -1,0 +1,81 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyOHcj/gdnHfNeWSFjsrNMUC",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/NaFerEd/Laboratorio-de-Fenomenos/blob/main/Practica_1_Ley_de_enfriamiento_de_Newton.py\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 8,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "QQvakcsi4ED9",
+        "outputId": "c6aa856f-404f-47af-877c-000bfa46e7d1"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "0.12  Incertidumbre tipo A, Promedio de tiempos de reacción\n",
+            "0.01 Incertidumbre tipo B, Presición del cronometro\n",
+            "0.12041594578792295 Incertidumbre combinada\n"
+          ]
+        }
+      ],
+      "source": [
+        "from math import*\n",
+        "import numpy as np\n",
+        "\n",
+        "#------------------------------\n",
+        "#Calculo de insertidumbres de t\n",
+        "#------------------------------\n",
+        "\n",
+        "#Tiempos de reacion\n",
+        "\n",
+        "tiempos_y = [0.13, 0.13, 0.13, 0.13, 0.14, 0.12, 0.14, 0.14, 0.13, 0.12]\n",
+        "\n",
+        "for tiempos in tiempos_y:\n",
+        "    tiemposp = np.array(tiempos)\n",
+        "    U_A = tiemposp.mean()\n",
+        "\n",
+        "\n",
+        "print(U_A, \" Incertidumbre tipo A, Promedio de tiempos de reacción\")\n",
+        "\n",
+        "#Calculo de incertidumbre combinada para t\n",
+        "\n",
+        "U_B = 0.01           #incertidumbre tipo B, presición del cronometro\n",
+        "\n",
+        "print(U_B, \"Incertidumbre tipo B, Presición del cronometro\")\n",
+        "\n",
+        "U_C = (U_A**2 + U_B**2)**(1/2)\n",
+        "\n",
+        "print(U_C, \"Incertidumbre combinada\")\n"
+      ]
+    }
+  ]
+}
